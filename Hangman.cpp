@@ -39,5 +39,10 @@ string Hangman::getWord(int difficulty) {
     int random = rand() % words.size() + 1;
 
     word = words.at(random);
+}
 
+void Hangman::createWordSet() {
+    for (char c : word){
+        letters.insert(c);
+    }
 }

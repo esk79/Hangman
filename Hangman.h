@@ -20,6 +20,7 @@ public:
     bool hasLost();
     void reduceLife();
     void restart();
+    void createWordSet();
 
 private:
     multiset<char> letters;
