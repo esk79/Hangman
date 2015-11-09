@@ -46,3 +46,13 @@ void Hangman::createWordSet() {
         letters.insert(c);
     }
 }
+
+void Hangman::Hangman(int difficulty) {
+    getWord(difficulty);
+    createWordSet();
+    lives = 7;
+}
+
+bool Hangman::isInWord(char c){
+   return false;
+}

@@ -12,8 +12,9 @@ using namespace std;
 
 class Hangman{
 public:
+    Hangman(int difficulty);
     string getWord(int difficulty);
-    bool isInWord();
+    bool isInWord(char c);
     void removeLetter();
     bool isEnd();
     bool hasWon();
