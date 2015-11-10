@@ -15,13 +15,15 @@ public:
     Hangman(int difficulty);
     string getWord(int difficulty);
     bool isInWord(char c);
-    void removeLetter();
+    void removeLetter(char c);
     bool isEnd();
     bool hasWon();
     bool hasLost();
     void reduceLife();
     void restart();
     void createWordSet();
+    int getLives();
+    void print();
 
 private:
     multiset<char> letters;

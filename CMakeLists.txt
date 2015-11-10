@@ -3,5 +3,5 @@ project(Hangman)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp Hangman.cpp Hangman.h)
+set(SOURCE_FILES main.cpp Hangman.cpp Hangman.h Controller.cpp Controller.h)
 add_executable(Hangman ${SOURCE_FILES})

@@ -47,12 +47,52 @@ void Hangman::createWordSet() {
     }
 }
 
-void Hangman::Hangman(int difficulty) {
+Hangman::Hangman(int difficulty) {
     getWord(difficulty);
     createWordSet();
     lives = 7;
 }
 
 bool Hangman::isInWord(char c){
-   return false;
+    return word.find(c) != string::npos;
 }
+
+bool Hangman::isEnd(){
+    if (hasWon() || hasLost()){
+        return true;
+    }
+    return false;
+};
+
+bool Hangman::hasWon(){
+    if (letters.empty()){
+        return true;
+    }
+    return false;
+};
+
+bool Hangman::hasLost(){
+    if (lives == 0){
+        return true;
+    }
+    return false;
+};
+
+void Hangman::reduceLife(){
+    lives--;
+    isEnd();
+};
+
+int Hangman::getLives(){
+    return lives;
+}
+
+void Hangman::removeLetter(char c){
+    //TODO Faadhil
+}
+
+void Hangman::print() {
+    //TODO Faadhil
+    //print the state of the game as _ r _ a _ _ _ a _ <-- like that for example
+}
+
