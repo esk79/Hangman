@@ -96,3 +96,6 @@ void Hangman::print() {
     //print the state of the game as _ r _ a _ _ _ a _ <-- like that for example
 }
 
+void Hangman::printWord(){
+    cout << "The word was: " << word << endl;
+}

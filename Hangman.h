@@ -24,6 +24,7 @@ public:
     void createWordSet();
     int getLives();
     void print();
+    void printWord();
 
 private:
     multiset<char> letters;

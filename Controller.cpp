@@ -29,4 +29,5 @@ void Controller::runGame() {
             game.print();
         }
     }
+    game.printWord();
 }
