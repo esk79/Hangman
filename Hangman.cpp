@@ -88,7 +88,7 @@ int Hangman::getLives(){
 }
 
 void Hangman::removeLetter(char c){
-    //TODO Faadhil
+    letters.erase(c);
 }
 
 void Hangman::print() {
