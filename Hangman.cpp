@@ -48,7 +48,7 @@ void Hangman::createWordSet() {
 }
 
 Hangman::Hangman(int difficulty) {
-    getWord(difficulty);
+    getWord(difficulty); //Test
     createWordSet();
     lives = 7;
 }
@@ -59,7 +59,7 @@ bool Hangman::isInWord(char c){
 
 bool Hangman::isEnd(){
     if (hasWon() || hasLost()){
-        return true;
+        return true; 
     }
     return false;
 };
