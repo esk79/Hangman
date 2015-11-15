@@ -20,15 +20,15 @@ public:
     bool hasWon();
     bool hasLost();
     void reduceLife();
-    void restart();
     void createWordSet();
     int getLives();
-    void print();
+    void print(char c);
     void printWord();
 
 private:
     multiset<char> letters;
     string word;
+	string fin;
     int lives;
 };
 

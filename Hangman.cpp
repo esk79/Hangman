@@ -4,6 +4,8 @@
 
 #include <vector>
 #include <fstream>
+#include <string>
+#include <iomanip>
 #include "Hangman.h"
 
 string Hangman::getWord(int difficulty) {
@@ -13,16 +15,20 @@ string Hangman::getWord(int difficulty) {
     string file;
     switch(difficulty){
         case 1  :
-            file = "/Users/EvanKing/Documents/Dev/Academic/Fall2015/CS2024/Hangman/easyWord.txt";
+			file = "C:\\Users\\Faadhil\\Dropbox\\CS2024\\Hangman\\easyWords.txt";
+				//"/Users/EvanKing/Documents/Dev/Academic/Fall2015/CS2024/Hangman/easyWord.txt";
             break;
         case 2 :
-            file = "/Users/EvanKing/Documents/Dev/Academic/Fall2015/CS2024/Hangman/mediumWords.txt";
+            file = "C:\\Users\\Faadhil\\Dropbox\\CS2024\\Hangman\\mediumWords.txt";
+				//"/Users/EvanKing/Documents/Dev/Academic/Fall2015/CS2024/Hangman/mediumWords.txt";
             break;
         case 3 :
-            file = "/Users/EvanKing/Documents/Dev/Academic/Fall2015/CS2024/Hangman/hardWords.txt";
+            file = "C:\\Users\\Faadhil\\Dropbox\\CS2024\\Hangman\\hardWords.txt";
+				//"/Users/EvanKing/Documents/Dev/Academic/Fall2015/CS2024/Hangman/hardWords.txt";
             break;
         default :
-            file = "/Users/EvanKing/Documents/Dev/Academic/Fall2015/CS2024/Hangman/easyWord.txt";
+            file = "C:\\Users\\Faadhil\\Dropbox\\CS2024\\Hangman\\easyWords.txt";
+				//"/Users/EvanKing/Documents/Dev/Academic/Fall2015/CS2024/Hangman/easyWord.txt";
     }
 
     ifstream in;
@@ -39,6 +45,7 @@ string Hangman::getWord(int difficulty) {
     int random = rand() % words.size() + 1;
 
     word = words.at(random);
+	return word;
 }
 
 void Hangman::createWordSet() {
@@ -48,9 +55,12 @@ void Hangman::createWordSet() {
 }
 
 Hangman::Hangman(int difficulty) {
-    getWord(difficulty); //Test
+    getWord(difficulty); 
     createWordSet();
     lives = 7;
+	for (unsigned i = 0; i < word.length(); i++) {
+		fin = fin + '*';
+	}
 }
 
 bool Hangman::isInWord(char c){
@@ -91,9 +101,15 @@ void Hangman::removeLetter(char c){
     letters.erase(c);
 }
 
-void Hangman::print() {
-    //TODO Faadhil
-    //print the state of the game as _ r _ a _ _ _ a _ <-- like that for example
+void Hangman::print(char c) {
+	for (unsigned i = 0; i < fin.length(); i++) {
+		if (fin[i] == '*') {
+			if (word[i] == c) {
+				fin[i] = c;
+			}
+		}
+	}
+	cout << fin << endl;
 }
 
 void Hangman::printWord(){

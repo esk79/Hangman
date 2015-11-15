@@ -4,6 +4,7 @@
 
 #include "Controller.h"
 #include "Hangman.h"
+#include <vector>
 
 
 void Controller::runGame() {
@@ -12,21 +13,22 @@ void Controller::runGame() {
     int difficulty;
     cin >> difficulty;
     Hangman game = Hangman(difficulty);
-
-    while(!game.isEnd()){
+	vector<char> used;
+    while(!game.isEnd()) {
         cout << "Guess a letter!" << endl;
         char c;
         cin >> c;
 
-        if (game.isInWord(c)){
+        if (game.isInWord(c)) {
             game.removeLetter(c);
             cout << "nice guess!" << endl;
-            game.print();
-        }else{
+            game.print(c);
+        } 
+		else {
             cout << "sorry, that letter isn't in the word" << endl;
             game.reduceLife();
             cout << "you only have " << game.getLives() << " lives left" << endl;
-            game.print();
+            game.print(c);
         }
     }
     game.printWord();

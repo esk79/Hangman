@@ -1,4 +1,6 @@
 #include <iostream>
+#include <locale>
+
 #include "Hangman.h"
 #include "Controller.h"
 
